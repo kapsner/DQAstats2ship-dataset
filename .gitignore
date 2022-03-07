@@ -1,0 +1,9 @@
+/*
+/*/*
+
+!.gitignore
+!*.Rmd
+!*.Rproj
+!_bookdown.yml
+.Rproj.user
+!README.md
