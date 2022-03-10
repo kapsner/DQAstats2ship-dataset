@@ -471,7 +471,7 @@ all_results <- DQAstats::dqa(
   mdr_filename = mdr_filename,
   output_dir = output_dir,
   logfile_dir = logfile_dir,
-  parallel = TRUE
+  parallel = FALSE
 )
 ```
 
@@ -487,7 +487,8 @@ Sys.setenv("CSV_SOURCE_BASEPATH" = here::here())
 ## launch GUI
 DQAgui::launch_app(
   utils_path = utils_path,
-  mdr_filename = "mdr.csv"
+  mdr_filename = "mdr.csv",
+  parallel = FALSE
 )
 ```
 
