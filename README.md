@@ -24,7 +24,7 @@ bookdown::render_book(
 
 ## More Infos
 
-* about `DQAstats`: [(https://cran.r-project.org/package=DQAstats](https://cran.r-project.org/package=DQAstats)
+* about `DQAstats`: [https://cran.r-project.org/package=DQAstats](https://cran.r-project.org/package=DQAstats)
 * about `DQAgui`: [https://cran.r-project.org/package=DQAstats](https://cran.r-project.org/package=DQAstats)
 * the `DQAstats`-Wikipage: [https://github.com/miracum/dqa-dqastats/wiki](https://github.com/miracum/dqa-dqastats/wiki)
 * about MIRACUM: [https://www.miracum.org/](https://www.miracum.org/)
