@@ -320,7 +320,7 @@ Currently, there is no mechanism to automatically transform the plausibility che
 
 Please find further details on the definition of plausibility checks in the [DQAstats-wiki](https://github.com/miracum/dqa-dqastats/wiki/MDR#mdr-plausibility-relations).
 
-### Contraception in males
+### Contraception in males (atemporal plausibility)
 
 ```{r}
 # add plausibilities
@@ -341,7 +341,10 @@ p <- jsonlite::toJSON(list(
       )
     )
   )
-))
+),
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
 
 # write plausibility to mdr
 mdr[
@@ -351,7 +354,7 @@ mdr[
 ]
 ```
 
-### Diabetes age but no Diabetes
+### Diabetes age but no Diabetes (atemporal plausibility)
 
 ```{r}
 p <- jsonlite::toJSON(list(
@@ -369,9 +372,33 @@ p <- jsonlite::toJSON(list(
         )
       )
     )
-  )))
+  )),
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
 mdr[
   source_variable_name == "diab_known" &
+    dqa_assessment == 1,
+  plausibility_relation := p
+]
+```
+
+### Every ID is associated with one Sex-value (uniqueness plausibility)
+
+```{r}
+p <- jsonlite::toJSON(list(
+  "uniqueness" = list(
+    "sex" = list(
+      "name" =  "Every ID is associated with one Sex",
+      "description" = paste0("With each distinct value of 'id', ",
+      "only one value of 'sex' may be associated."
+    )
+  ))),
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
+mdr[
+  source_variable_name == "id" &
     dqa_assessment == 1,
   plausibility_relation := p
 ]
